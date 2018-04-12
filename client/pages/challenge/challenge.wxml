@@ -1,0 +1,20 @@
+<!--pages/challenge/challenge.wxml-->
+<view class='challenge_item'>
+  <view class='block-view'></view>
+  <button class="item-btn" type="primary" bindtap='toAnswer'>页面主操作 Normal</button>
+  <button class="item-btn" type="warn">警告类操作 Normal</button>
+</view>
+<view class='item-tab'>
+  <view class='item-navbar'>
+    <block wx:for="{{tabs}}" wx:key="*this">
+      <view id="{{index}}" bindtap='tabClick' class="item-navbar__item">
+        <view class='item-navbar__title'>{{item}}</view>
+      </view>
+    </block>
+  </view>
+  <view class='item-tab__panel'>
+    <view class='item-tab__conten' hidden='{{activeIndex!=0}}'>选项一的内容</view>
+    <view class='item-tab__conten' hidden='{{activeIndex!=1}}'>选项二的内容</view>
+    <view class='item-tab__conten' hidden='{{activeIndex!=2}}'>选项三的内容</view>
+  </view>
+</view>

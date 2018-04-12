@@ -1,0 +1,27 @@
+<!--pages/home/home.wxml-->
+<view class='home_item'>
+  <view bindtap='login'>
+    <view class='userinfo'>
+      <image class="userinfo-avatar" src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{logged ? userInfo.nickName : '点击测试登录接口'}}</text>
+      <text class="userinfo-nickname" wx:if="{{logged}}">{{userInfo.lastLoginTime}}</text>
+    </view>
+  </view>
+  <view class='homeinfo'>
+    <view class='homeinfo_item'>
+      <view class='homeinfo_test-item'>
+        <text class='homeinfo_test'>1</text>
+      </view>
+      <view class='homeinfo_test-item'>
+        <text class='homeinfo_test'>2</text>
+      </view>
+      <view class='homeinfo_test-item'>
+        <text class='homeinfo_test'>3</text>
+      </view>
+    </view>
+    <view class='homeinfo_btn'>
+      <button class="info-btn" type="primary">操作一</button>
+      <button class="info-btn" type="warn">操作二</button>
+    </view>
+  </view>
+</view>

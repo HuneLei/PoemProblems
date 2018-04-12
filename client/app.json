@@ -1,13 +1,26 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/addCgi/addCgi"
+  "pages": [
+    "pages/challenge/challenge",
+    "pages/home/home",
+    "pages/answer/answer"
   ],
-  "window":{
-    "backgroundColor":"#F6F6F6",
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "Wafer Quick Start",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/challenge/challenge",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "中心"
+      }
+    ]
   }
 }
