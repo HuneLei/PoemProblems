@@ -2,7 +2,7 @@
 <view class='challenge_item'>
   <view class='block-view'></view>
   <button class="item-btn" type="primary" bindtap='toAnswer'>页面主操作 Normal</button>
-  <button class="item-btn" type="warn">警告类操作 Normal</button>
+  <button class="item-btn" type="warn" bindtap='toTest'>警告类操作 Normal</button>
 </view>
 <view class='item-tab'>
   <view class='item-navbar'>

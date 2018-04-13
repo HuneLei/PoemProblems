@@ -1,0 +1,12 @@
+数据库      poem_problems
+字符集      utf8 -- UTF-8 Unicode
+排序规则   utf8_general_ci
+
+User_info  用户信息表
+    唯一id    ID
+    用户名字    username    varchar(32)
+    头像           src               varchar(300)
+    挑战机会    have_times  int
+    已经挑战    over_times  int
+    最高分        highest_score  int
+奖品

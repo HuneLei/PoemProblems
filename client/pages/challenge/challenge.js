@@ -1,3 +1,7 @@
+var config = require('../../config')
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var util = require('../../utils/util.js')
+
 // pages/challenge/challenge.js
 Page({
 
@@ -15,9 +19,24 @@ Page({
     });
   },
 
-  toAnswer:function(){
+  toAnswer: function () {
     wx.navigateTo({
       url: '/pages/answer/answer',
+    })
+  },
+
+  toTest: function () {
+    qcloud.request({
+      url: config.service.getUserInfo,
+      success(result) {
+        util.showSuccess('登录成功')
+        console.log(result);
+      },
+
+      fail(error) {
+        util.showModel('请求失败', error)
+        console.log('request fail', error)
+      }
     })
   },
 
