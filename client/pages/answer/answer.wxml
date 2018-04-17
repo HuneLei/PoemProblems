@@ -1,2 +1,16 @@
 <!--pages/answer/answer.wxml-->
-<text>Hallo W</text>
+<view class='answer-view'>
+  <progress percent="{{progress}}" color="green" stroke-width="10" class='progress_item' />
+  <button bindtap='begin' disabled='{{disabled}}' type='primary' class='btn_item'>开始</button>
+  <view class='math-view'>
+    <text>{{num1}}</text>
+    <text>{{sign}}</text>
+    <text>{{num2}}</text>
+    <text>=</text>
+    <text>{{result}}</text>
+  </view>
+  <view class='btn_select'>
+    <button type='primary' bindtap='bind_yes' id='Bnt_Y'>Y</button>
+    <button type='warn' bindtap='bind_no' id='Bnt_N'>N</button>
+  </view>
+</view>

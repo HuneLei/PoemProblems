@@ -1,1 +1,31 @@
 /* pages/answer/answer.wxss */
+
+.answer-view {
+  text-align: center;
+  margin: 10px;
+}
+
+.progress_item {
+  text-align: center;
+}
+
+.btn_item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 50%;
+}
+
+.math-view {
+  font-size: 40px;
+}
+
+.btn_select {
+   display: flex;
+   flex-direction:row;
+}
+
+.btn_select button {
+  width: 30%
+}
+
+
