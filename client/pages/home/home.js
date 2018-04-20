@@ -22,7 +22,7 @@ Page({
       success(result) {
         if (result) {
           util.showSuccess('登录成功')
-          this.setData({
+          that.setData({
             userInfo: result,
             logged: true
           })
@@ -44,6 +44,10 @@ Page({
             }
           })
         }
+      },
+      fail(error) {
+        util.showModel('登录失败', error)
+        console.log('登录失败', error)
       }
     })
   },

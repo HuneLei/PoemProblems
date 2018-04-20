@@ -3,7 +3,13 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
+// 测试环境的host
 var host = 'https://2dy36huw.qcloud.la';
+
+// var host = 'http://localhost:5757';
+
+// 生产环境的host
+// var host = 'https://837572824.hunecloud.club';
 
 var config = {
 
