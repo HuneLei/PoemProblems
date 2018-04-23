@@ -3,7 +3,7 @@ const config = require('./config')
 const router = require('./routes')
 const debug = require('debug')('koa-weapp-demo')
 const response = require('./middlewares/response')
-const bodyParser = require('koa-bodyparser')
+const bodyParser = require('koa-bodyparser')  
 
 const app = new Koa()
 

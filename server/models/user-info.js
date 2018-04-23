@@ -7,12 +7,13 @@ const user = {
      * @param {string} end      查找的终点
      * @return {object|null}    查找结果
      */
-    async findDataByPage(start, end) {
-        let result = await dbUtils.select(
+    async findDataByPage(start, end, value = 'id') {
+        let result = await dbUtils.findDataByPage(
             'user_info_table',
             ['*'],
             start,
-            end
+            end,
+            value
         )
         return result
     },
@@ -37,12 +38,22 @@ const user = {
     },
 
     /**
-     * 
+     * 创建用户信息记录
      * @param {object} model 用户数据模型
      * @return {object}      mysql执行结果
      */
     async createOneUserInfo(model) {
         let result = await dbUtils.insertData('user_info_table', model)
+        return result
+    },
+
+    /**
+     * 根据openId修改用户信息
+     * @param {object} model 用户数据模型
+     * @param {string} openId 用户唯一标识
+     */
+    async updateDataByOpenId(model, openId) {
+        let result = await dbUtils.updateDataByOpenId('user_info_table', model, openId)
         return result
     }
 }

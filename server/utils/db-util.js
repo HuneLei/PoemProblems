@@ -52,9 +52,9 @@ let findDataById = function (table, id) {
 }
 
 
-let findDataByPage = function (table, keys, start, end) {
-  let _sql = "SELECT ?? FROM ??  LIMIT ? , ?"
-  return query(_sql, [keys, table, start, end])
+let findDataByPage = function (table, keys, start, end, value = 'id') {
+  let _sql = "SELECT ?? FROM ?? ORDER BY ?? DESC LIMIT ? , ?"
+  return query(_sql, [keys, table, value, start, end])
 }
 
 
@@ -69,6 +69,10 @@ let updateData = function (table, values, id) {
   return query(_sql, [table, values, id])
 }
 
+let updateDataByOpenId = function (table, values, openId) {
+  let _sql = "UPDATE ?? SET ? WHERE open_id = ?"
+  return query(_sql, [table, values, openId])
+}
 
 let deleteDataById = function (table, id) {
   let _sql = "DELETE FROM ?? WHERE id = ?"
@@ -102,5 +106,6 @@ module.exports = {
   findDataById,
   findDataByPage,
   deleteDataById,
-  findDataByOpenId
+  findDataByOpenId,
+  updateDataByOpenId
 }

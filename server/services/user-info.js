@@ -22,6 +22,28 @@ const user = {
     async create(user) {
         let result = await userModels.createOneUserInfo(user)
         return result
+    },
+
+    /**
+     * 查询用户信息
+     * @param {string} start    查找的起点
+     * @param {string} end      查找的终点
+     * @param {string} value    根据什么进行排序查询,默认为ID
+     * @return {object|null}    查找结果
+     */
+    async findUserData(start, end, value = 'id') {
+        let result = await userModels.findDataByPage(start, end, value)
+        return result
+    },
+
+    /**
+     * 根据openId修改用户信息
+     * @param {object} model 用户数据模型
+     * @param {string} openId 用户唯一标识
+     */
+    async updateDataByOpenId(model, openId) {
+        let result = await userModels.updateDataByOpenId(model, openId)
+        return result
     }
 }
 

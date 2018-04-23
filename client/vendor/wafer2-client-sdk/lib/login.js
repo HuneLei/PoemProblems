@@ -130,7 +130,6 @@ var login = function login(options) {
       },
     });
   });
-  Session.clear();
   var session = Session.get();
   if (session) {
     wx.checkSession({

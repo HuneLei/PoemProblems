@@ -1,13 +1,8 @@
-const dbUtils = require('../utils/db-util.js')
+const userInfoService = require('../services/user-info')
 
 module.exports = async ctx => {
-  let result = await dbUtils.select(
-    'user_info_table',
-    ['*']
-  );
-  if (Array.isArray(result) && result.length > 0) {
-    result = result[0]
-  } else {
+  let result = await userInfoService.findUserData(0, 10, 'highest_score');
+  if (Array.isArray(result) && result.length <= 0) {
     result = null
   }
   ctx.state.data = result;
