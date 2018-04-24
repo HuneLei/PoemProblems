@@ -21,8 +21,8 @@ const config = {
     port: 3306,
     user: 'root',
     db: 'cAuth',
-    pass: '123456',         // 本地环境密码
-    // pass: 'wx9a26d73bc4e6f87f',     // 测试环境密码
+    // pass: '123456',         // 本地环境密码
+    pass: 'wx9a26d73bc4e6f87f',     // 测试环境密码
     // pass: 'hautXtxH',   // 生产环境密码
     char: 'utf8mb4',
     database: 'poem_problems'

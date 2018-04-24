@@ -1,3 +1,6 @@
+const config = require('../../config')
+const util = require('../../utils/util.js')
+
 function RandomNumBoth(Min, Max) {
   var Range = Max - Min;
   var Rand = Math.random();
@@ -52,6 +55,26 @@ function _next() {
       disabled: false,
     })
     if (this.data.shownum) {
+      if (wx.getStorageSync('user_info').highestScore < this.data.score) {
+        let newStorage = wx.getStorageSync('user_info');
+        newStorage.highestScore = this.data.score;
+        wx.setStorageSync('user_info', newStorage);
+        wx.request({
+          url: config.service.updataUserInfo,
+          method: 'POST',
+          data: {
+            openid: wx.getStorageSync('user_info').openId,
+            score: this.data.score,
+          },
+          success(result) {
+            console.log('更新成功!')
+          },
+          fail(error) {
+            util.showModel('请求失败', error)
+            console.log('request fail', error)
+          }
+        })
+      }
       wx.showModal({
         content: `嗯，结束了。
        一共得分 ${this.data.score}分 
@@ -162,7 +185,6 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log('123');
   },
 
   /**
@@ -194,7 +216,6 @@ Page({
   onShareAppMessage: function () {
 
   },
-  onTabItemTap: function(){
-      console.log('789')
+  onTabItemTap: function () {
   }
 })

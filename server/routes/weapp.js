@@ -33,4 +33,4 @@ module.exports = router.get('/login', authorizationMiddleware, controllers.login
     .get('/userinfo', controllers.userinfo)
 
     // 用户信息更新接口
-    .get('/updateInfo', controllers.updateInfo)
+    .post('/updateInfo', controllers.updateInfo)

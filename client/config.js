@@ -4,9 +4,9 @@
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
 // 测试环境的host
-// var host = 'https://2dy36huw.qcloud.la';
+var host = 'https://2dy36huw.qcloud.la';
 
-var host = 'http://localhost:5757';
+// var host = 'http://localhost:5757';
 
 // 生产环境的host
 // var host = 'https://837572824.hunecloud.club';
@@ -30,7 +30,10 @@ var config = {
     uploadUrl: `${host}/weapp/upload`,
 
     // 获取挑战信息接口
-    getUserInfo: `${host}/weapp/userinfo`
+    getUserInfo: `${host}/weapp/userinfo`,
+
+    // 挑战信息跟新接口
+    updataUserInfo: `${host}/weapp/updateInfo`
   }
 };
 

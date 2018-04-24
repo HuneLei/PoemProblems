@@ -70,7 +70,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    try {
+      var value = wx.getStorageSync('user_info')
+      console.log('value', value);
+      if (value) {
+        // Do something with return value
+        this.setData({
+          userInfo: value,
+          logged: true
+        })
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
   },
 
   /**
