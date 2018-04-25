@@ -21,7 +21,8 @@ const CONF = {
     port: 3306,
     user: 'root',
     db: 'cAuth',
-    pass: 'wx9a26d73bc4e6f87f',
+    // pass: 'wx9a26d73bc4e6f87f',  测试环境密码
+    pass: 'hautXtxH',  // 正式环境密码
     char: 'utf8mb4',
     database: 'poem_problems'
   },

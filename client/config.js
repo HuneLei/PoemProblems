@@ -3,7 +3,10 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://2dy36huw.qcloud.la';
+// var host = 'https://2dy36huw.qcloud.la';  // 测试环境域名
+
+// 此处主机域名修改成腾讯云解决方案分配的域名
+var host = 'https://837572824.hunecloud.club';     // 正式环境域名
 
 var config = {
 
