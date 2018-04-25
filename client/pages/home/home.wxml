@@ -10,13 +10,13 @@
   <view class='homeinfo'>
     <view class='homeinfo_item'>
       <view class='homeinfo_test-item'>
-        <text class='homeinfo_test'>1</text>
+        <text class='homeinfo_test'>{{userInfo.gender}}</text>
       </view>
       <view class='homeinfo_test-item'>
-        <text class='homeinfo_test'>2</text>
+        <text class='homeinfo_test'>{{userInfo.haveTimes}}</text>
       </view>
       <view class='homeinfo_test-item'>
-        <text class='homeinfo_test'>3</text>
+        <text class='homeinfo_test'>{{userInfo.highestScore}}</text>
       </view>
     </view>
     <view class='homeinfo_btn'>

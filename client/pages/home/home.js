@@ -22,7 +22,7 @@ Page({
       success(result) {
         if (result) {
           util.showSuccess('登录成功')
-          this.setData({
+          that.setData({
             userInfo: result,
             logged: true
           })
@@ -44,6 +44,10 @@ Page({
             }
           })
         }
+      },
+      fail(error) {
+        util.showModel('登录失败', error)
+        console.log('登录失败', error)
       }
     })
   },
@@ -66,7 +70,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    try {
+      var value = wx.getStorageSync('user_info')
+      console.log('value', value);
+      if (value) {
+        // Do something with return value
+        this.setData({
+          userInfo: value,
+          logged: true
+        })
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
   },
 
   /**

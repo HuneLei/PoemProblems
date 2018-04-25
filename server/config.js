@@ -1,4 +1,4 @@
-const CONF = {
+const config = {
   port: '5757',
   rootPathname: '',
 
@@ -6,7 +6,7 @@ const CONF = {
   appId: 'wx9a26d73bc4e6f87f',
 
   // 微信小程序 App Secret
-  appSecret: '',
+  appSecret: '961a031cfec1c4a6e70c1facf304a0be',
 
   // 是否使用腾讯云代理登录小程序
   useQcloudLogin: true,
@@ -21,8 +21,9 @@ const CONF = {
     port: 3306,
     user: 'root',
     db: 'cAuth',
-    // pass: 'wx9a26d73bc4e6f87f',  测试环境密码
-    pass: 'hautXtxH',  // 正式环境密码
+    // pass: '123456',         // 本地环境密码
+    pass: 'wx9a26d73bc4e6f87f',     // 测试环境密码
+    // pass: 'hautXtxH',   // 生产环境密码
     char: 'utf8mb4',
     database: 'poem_problems'
   },
@@ -41,7 +42,17 @@ const CONF = {
 
   // 微信登录态有效期
   wxLoginExpires: 7200,
-  wxMessageToken: 'abcdefgh'
+  wxMessageToken: 'abcdefgh',
+
+  // 其他配置 ...
+  serverHost: 'localhost',
+  tunnelServerUrl: '',
+  tunnelSignatureKey: '27fb7d1c161b7ca52d73cce0f1d833f9f5b5ec89',
+  // 腾讯云相关配置可以查看云 API 秘钥控制台：https://console.cloud.tencent.com/capi
+  qcloudAppId: '1256009981',
+  qcloudSecretId: 'AKIDiJjy2v3GfsLerspKwQiojSzO3Yr2HpRv',
+  qcloudSecretKey: 'RhmkW7cw52oRvGRQCmALK7h5GF3f9RYT',
+  networkTimeout: 30000,
 }
 
-module.exports = CONF
+module.exports = config

@@ -1,3 +1,6 @@
+const config = require('../../config')
+const util = require('../../utils/util.js')
+
 function RandomNumBoth(Min, Max) {
   var Range = Max - Min;
   var Rand = Math.random();
@@ -51,17 +54,39 @@ function _next() {
     this.setData({
       disabled: false,
     })
-    wx.showModal({
-      content: `嗯，结束了。
+    if (this.data.shownum) {
+      if (wx.getStorageSync('user_info').highestScore < this.data.score) {
+        let newStorage = wx.getStorageSync('user_info');
+        newStorage.highestScore = this.data.score;
+        wx.setStorageSync('user_info', newStorage);
+        wx.request({
+          url: config.service.updataUserInfo,
+          method: 'POST',
+          data: {
+            openid: wx.getStorageSync('user_info').openId,
+            score: this.data.score,
+          },
+          success(result) {
+            console.log('更新成功!')
+          },
+          fail(error) {
+            util.showModel('请求失败', error)
+            console.log('request fail', error)
+          }
+        })
+      }
+      wx.showModal({
+        content: `嗯，结束了。
        一共得分 ${this.data.score}分 
        小学未毕业!`,
-      showCancel: false,
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
         }
-      }
-    });
+      });
+    }
     return true;
   } else {
     this.setData({
@@ -88,6 +113,7 @@ Page({
     clicknum: 1,
     correctnum: 1,
     score: 0,
+    shownum: 1,
   },
 
   begin: function () {
@@ -159,14 +185,15 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    this.setData({
+      shownum: 0,
+    })
   },
 
   /**
@@ -188,5 +215,7 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onTabItemTap: function () {
   }
 })
